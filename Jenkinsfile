@@ -6,7 +6,7 @@ pipeline{
         ENV_THREE=3
     }
     stages{
-        stage("inbuild-env-vars")
+        stage("inbuildEnvironmentVariables")
         {
             steps{
                 echo "JENKINS_URL : ${JENKINS_URL}"
