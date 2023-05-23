@@ -7,11 +7,12 @@ pipeline{
         ENV_THREE=3
     }
     stages{
-        stage("one")
+        stage("parallel stages")
         {
             steps{
-                echo "one ${ENV_ONE}"
-                parallel(
+                echo "parallel stages"
+            }
+            parallel{
                 stage("p1"){
                     steps{
                         echo "parallel 1"
@@ -22,7 +23,12 @@ pipeline{
                         echo "parallel 2"
                     }
                 }
-            )
+                }
+        }
+        stage("one")
+        {
+            steps{
+                echo "one ${ENV_ONE}"
             }
               
         }
