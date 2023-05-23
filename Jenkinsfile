@@ -8,7 +8,11 @@ pipeline{
     stages{
         stage("parallel stages")
         {
+             when{
+                 branch "main1"   
+                }
             parallel{
+               
                 stage("p1"){
                     steps{
                         echo "parallel 1"
