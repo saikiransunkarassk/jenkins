@@ -6,16 +6,42 @@ pipeline{
         ENV_THREE=3
     }
     stages{
+        stage("parallel stages")
+        {
+             when{
+                 branch "main1"   
+                }
+            parallel{
+               
+                stage("p1"){
+                    steps{
+                        echo "parallel 1"
+                    }
+                }
+                stage("p2"){
+                    steps{
+                        echo "parallel 2"
+                    }
+                }
+                 stage("p3"){
+                    steps{
+                        echo "parallel 2"
+                    }
+                }
+                }
+        }
         stage("one")
         {
             steps{
                 echo "one ${ENV_ONE}"
             }
+              
         }
+
         stage("two")
         {
             steps{
-                echo "two ${ENV_TWO}"
+                echo "tw ${ENV_TWO}"
             }
         }
         stage("three")
