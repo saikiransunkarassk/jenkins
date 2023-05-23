@@ -6,22 +6,17 @@ pipeline{
         ENV_THREE=3
     }
     stages{
-        stage("inbuildEnvironmentVariables")
+        stage("inbuildEnvironmentVar")
         {
-            steps{
-                //echo "JENKINS_URL : ${JENKINS_URL}"
-                 //echo "GIT_AUTHOR_NAME : ${GIT_AUTHOR_NAME}"
-                // echo "GIT_AUTHOR_EMAIL : ${GIT_AUTHOR_EMAIL}"
-                // echo "GIT_COMMITTER_NAME : ${GIT_COMMITTER_NAME}"
-                // echo "GIT_COMMITTER_EMAIL : ${GIT_COMMITTER_EMAIL}"
-                
+            script{
+                echo "JENKINS_URL : ${JENKINS_URL}"
+                echo "GIT_AUTHOR_NAME : ${GIT_AUTHOR_NAME}"
+                echo "GIT_AUTHOR_EMAIL : ${GIT_AUTHOR_EMAIL}"
+                echo "GIT_COMMITTER_NAME : ${GIT_COMMITTER_NAME}"
+                echo "GIT_COMMITTER_EMAIL : ${GIT_COMMITTER_EMAIL}"
+                echo "GIT_URL : ${GIT_URL}"
                 echo "BRANCH_NAME : ${BRANCH_NAME}"
             }
-            steps
-        {
-echo "GIT_URL : ${GIT_URL}"
-        }
-
         }
         stage("parallel stages")
         {
