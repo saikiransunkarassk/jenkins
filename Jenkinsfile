@@ -19,6 +19,11 @@ pipeline{
                         echo "parallel 2"
                     }
                 }
+                 stage("p3"){
+                    steps{
+                        echo "parallel 2"
+                    }
+                }
                 }
         }
         stage("one")
