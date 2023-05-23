@@ -9,9 +9,8 @@ pipeline{
         stage("inbuildEnvironmentVariables")
         {
             steps{
-
-                echo "JENKINS_URL : ${JENKINS_URL}"
-            
+                
+                echo "JENKINS_URL : ${JENKINS_URL}\n GIT_AUTHOR_NAME : ${GIT_AUTHOR_NAME}\n GIT_AUTHOR_EMAIL : ${GIT_AUTHOR_EMAIL}\n GIT_COMMITTER_NAME : ${GIT_COMMITTER_NAME}\n GIT_COMMITTER_EMAIL : ${GIT_COMMITTER_EMAIL}\n GIT_URL : ${GIT_URL}\n BRANCH_NAME : ${BRANCH_NAME}\n"
             }
         }
         stage("parallel stages")
