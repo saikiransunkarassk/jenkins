@@ -8,6 +8,9 @@ pipeline{
     stages{
         stage("parallel stages")
         {
+            steps{
+                echo "hello"
+            }
             parallel{
                 stage("p1"){
                     steps{
