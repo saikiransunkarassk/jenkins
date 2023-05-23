@@ -15,7 +15,7 @@ pipeline{
         stage("two")
         {
             steps{
-                echo "two ${ENV_TWO}"
+                echo "tw ${ENV_TWO}"
             }
         }
         stage("three")
