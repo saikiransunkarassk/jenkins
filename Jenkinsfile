@@ -1,6 +1,5 @@
 pipeline{
     agent any
-    //global environment varables
     environment{
         ENV_ONE=1
         ENV_TWO=2
@@ -9,9 +8,6 @@ pipeline{
     stages{
         stage("parallel stages")
         {
-            steps{
-                echo "parallel stages"
-            }
             parallel{
                 stage("p1"){
                     steps{
