@@ -27,7 +27,6 @@ pipeline{
         {
             steps{
                
-                params.newString="abc"
                 echo "parameters variable newString : ${params.newString}"
                 
             }
