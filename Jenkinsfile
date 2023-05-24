@@ -23,6 +23,12 @@ pipeline{
             
             }
         }
+        stage("pythonScript")
+        {
+            steps{
+                python3 demo.py
+            }
+        }
         stage("parameters")
         {
             steps{
@@ -34,6 +40,7 @@ pipeline{
         stage("parallel stages")
         {
              when{
+
                  branch "main1"   
                 }
             parallel{
