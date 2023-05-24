@@ -6,7 +6,7 @@ pipeline{
         ENV_THREE=3
     }
     parameters{
-        STRING(name:'newString',defaultValue:"hello",description:"")
+         string(name:'newString',defaultValue:"hello",description:"")
     }
     stages{
         stage("inbuildEnvironmentVar")
