@@ -26,7 +26,7 @@ pipeline{
         stage("pythonScript")
         {
             steps{
-                python3 demo.py
+                sh "python3 .\scripts\demo.py"
             }
         }
         stage("parameters")
