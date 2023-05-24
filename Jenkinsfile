@@ -5,6 +5,9 @@ pipeline{
         ENV_TWO=2
         ENV_THREE=3
     }
+    parameters{
+        STRING(name:'newString',defaultValue:"hello",description:"")
+    }
     stages{
         stage("inbuildEnvironmentVar")
         {
@@ -18,6 +21,14 @@ pipeline{
 //                 echo "GIT_URL : ${GIT_URL}"
 //                 echo "BRANCH_NAME : ${BRANCH_NAME}"
             }
+            }
+        }
+        stage("inbuildEnvironmentVar")
+        {
+            steps{
+                script{
+                echo "parameters variable newString : ${params.newString}"
+                }
             }
         }
         stage("parallel stages")
