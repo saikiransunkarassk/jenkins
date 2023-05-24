@@ -9,6 +9,12 @@ pipeline{
          string(name:'newString',defaultValue:"hello",description:"")
     }
     stages{
+        stage("directoryContents")
+        {
+            steps{
+                sh "ls -R"
+            }
+        }
         stage("inbuildEnvironmentVar")
         {
             steps{
