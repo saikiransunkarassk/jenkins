@@ -26,10 +26,10 @@ pipeline{
         stage("parameters")
         {
             steps{
-                script{
-                    params.newString="abc"
+               
+                params.newString="abc"
                 echo "parameters variable newString : ${params.newString}"
-                }
+                
             }
         }
         stage("parallel stages")
