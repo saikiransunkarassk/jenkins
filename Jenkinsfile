@@ -23,7 +23,7 @@ pipeline{
             }
             }
         }
-        stage("inbuildEnvironmentVar")
+        stage("parameters")
         {
             steps{
                 script{
