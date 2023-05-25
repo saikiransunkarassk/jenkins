@@ -12,7 +12,7 @@ pipeline{
         stage("directoryContents")
         {
             steps{
-                sh "./scripts/demo.py"
+                sh "python3 ./scripts/demo.py"
             }
         }
         stage("inbuildEnvironmentVar")
