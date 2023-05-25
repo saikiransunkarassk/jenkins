@@ -12,7 +12,7 @@ pipeline{
         stage("directoryContents")
         {
             steps{
-                sh "ls -R"
+                sh "./scripts/demo.py"
             }
         }
         stage("inbuildEnvironmentVar")

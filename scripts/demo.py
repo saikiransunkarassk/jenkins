@@ -1,1 +1,3 @@
-print("Hey i am running inside jenkins pipeline")
+import subprocess
+
+subprocess.run("conftest verify --policy ../policies/policy1 --output=table",shell=True)
