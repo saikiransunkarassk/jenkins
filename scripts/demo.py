@@ -1,8 +1,24 @@
 import subprocess
 import os
+import argparse
 
-os.environ["NEW_ENV1"]="new environmental variable is set"
+parser = argparse.ArgumentParser()
+
+parser.add_argument("--jenkinvars")
+
+args=parser.parse_args()
+
+print(args)
 
 commandList=["conftest","verify", "--policy" ,"./policies/policy1", "--output=table"]
-print(os.environ)
-subprocess.run(commandList)
+
+val=subprocess.run(commandList,capture_output=True,text=True)
+
+output=val.stdout
+
+print(output)
+
+if(val.returncode==0):
+    print("successfully runned")
+else:
+    print("unsuccessful")
