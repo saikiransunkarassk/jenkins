@@ -19,7 +19,7 @@ pipeline{
         {
             steps{
           
-                echo "JENKINS_URL : ${JENKINS_URL}"
+                echo "JENKINS_URL : ${NEW_ENV1}"
 //                 echo "GIT_AUTHOR_NAME : ${GIT_AUTHOR_NAME}"
 //                 echo "GIT_AUTHOR_EMAIL : ${GIT_AUTHOR_EMAIL}"
 //                 echo "GIT_COMMITTER_NAME : ${GIT_COMMITTER_NAME}"

@@ -1,3 +1,7 @@
 import subprocess
+import os
 
-subprocess.run("conftest verify --policy ./policies/policy1 --output=table",shell=True)
+os.environ["NEW_ENV1"]="new environmental variable is set"
+
+commandList=["conftest","verify", "--policy" ,"./policies/policy1", "--output=table"]
+subprocess.run(commandList)
