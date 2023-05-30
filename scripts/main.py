@@ -10,6 +10,8 @@ args=parser.parse_args()
 
 val=subprocess.run(["conftest","verify", "--policy" ,"./policies/policy1", "--output=table"],capture_output=True,text=True)
 
+print(os.environ)
+
 os.environ[args.changeVar[0]]=args.changeVar[1]
 
 os.environ["NEW_VAR"]="hello"
