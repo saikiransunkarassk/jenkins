@@ -11,12 +11,12 @@ args=parser.parse_args()
 print(args)
 if(args.changeVar[0] in os.environ.keys()):
     # os.environ[args.changeVar[0]]=args.changeVar[1] #temp change
-    subprocess.run(["export ",args.changeVar[0],"=",args.changeVar[1]],shell=True)
+    subprocess.run(["export ",args.changeVar[0],"=",args.changeVar[1]])
     print("environment varable successfully changed")
 
 # os.environ["NEW_VAR"]="Hello World!" #temp storage
 
-subprocess.run(["export ",args.changeVar[0],"=",args.changeVar[1]],shell=True)
+subprocess.run(["export ",args.changeVar[0],"=\"",args.changeVar[1]+"\""])
 
 print("new environment variable is created")
 
