@@ -9,12 +9,6 @@ pipeline{
          string(name:'newString',defaultValue:"hello",description:"")
     }
     stages{
-        stage("directoryContents")
-        {
-            steps{
-                sh "python3 ./scripts/demo.py"
-            }
-        }
         stage("inbuildEnvironmentVar")
         {
             steps{
@@ -32,7 +26,7 @@ pipeline{
         stage("pythonScript")
         {
             steps{
-                sh "python3 ./scripts/demo.py --jenkinvars env"
+             sh 'echo ${env.getEnvironment().each { name, value -> println "Name: $name -> Value $value" }}'// sh "python3 ./scripts/demo.py --jenkinvars ${env.} "
             }
         }
         stage("parameters")
