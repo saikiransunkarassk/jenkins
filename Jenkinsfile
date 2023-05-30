@@ -28,9 +28,10 @@ pipeline{
         {
             steps{
               echo "before running python script ENV_VALUE : ${ENV_VALUE}"
-              sh "python3 ./scripts/demo.py --changeVar 'ENV_VALUE' 'some new value' "
+              sh "python3 ./scripts/main.py --changeVar 'ENV_VALUE' 'some new value' "
               echo "after running python script ENV_VALUE : ${ENV_VALUE}"
               echo "new enviroment var NEW_VAR : ${NEW_VAR}"
+              sh "python3 ./scripts/destroyEnvVars.py"
             }
         }
         stage("parameters")
