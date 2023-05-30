@@ -31,12 +31,12 @@ pipeline{
 
               sh '''python3 ./scripts/main.py --changeVar 'ENV_VALUE' 'some' 
 
-              echo "after running python script ENV_VALUE : ${ENV_VALUE}"
+              echo "after running python script ENV_VALUE : $ENV_VALUE"
 
-              echo "new enviroment var NEW_VAR : ${NEW_VAR}"
+              echo "new enviroment var NEW_VAR : $NEW_VAR"
               
               python3 ./scripts/destroyEnvVars.py'''
-              
+
             }
         }
         stage("parameters")
