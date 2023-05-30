@@ -14,6 +14,8 @@ print(os.environ)
 
 os.environ[args.changeVar[0]]=args.changeVar[1]
 
+print(args.changeVar[0])
+
 os.environ["NEW_VAR"]="hello"
 
 if(args.changeVar[0] not in os.environ.keys()):  
