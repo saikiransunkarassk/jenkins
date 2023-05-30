@@ -10,15 +10,23 @@ args=parser.parse_args()
 
 print(args)
 if(args.changeVar[0] in os.environ.keys()):
-    os.environ.update(args.changeVar[0],args.changeVar[1])
+    # os.environ[args.changeVar[0]]=args.changeVar[1] #temp change
+    subprocess.run(f"export ${args.changeVar[0]}=${args.changeVar[1]}")
     print("environment varable successfully changed")
 
-os.environ["NEW_VAR"]="Hello World!"
+# os.environ["NEW_VAR"]="Hello World!" #temp storage
+
+subprocess.run(f"export ${args.changeVar[0]}=${args.changeVar[1]}")
+
 print("new environment variable is created")
 
-commandList=["conftest","verify", "--policy" ,"./policies/policy1", "--output=table"]
+commandList1=["conftest","verify", "--policy" ,"./policies/policy1", "--output=table"]
 
-val=subprocess.run(commandList,capture_output=True,text=True)
+commandList2=["conftest","verify", "--policy" ,"./policies/policy1", "--output=table"]
+
+val=subprocess.run(commandList1,capture_output=True,text=True)
+
+
 
 output=val.stdout
 
