@@ -26,7 +26,7 @@ pipeline{
         stage("pythonScript")
         {
             steps{
-             sh 'echo ${env.getEnvironment().each { name, value -> println "Name: $name -> Value $value" }}'// sh "python3 ./scripts/demo.py --jenkinvars ${env.} "
+             sh env// sh "python3 ./scripts/demo.py --jenkinvars ${env.} "
             }
         }
         stage("parameters")
