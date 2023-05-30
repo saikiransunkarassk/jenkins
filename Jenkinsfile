@@ -31,8 +31,8 @@ pipeline{
               sh "python3 ./scripts/main.py --changeVar 'ENV_VALUE' 'some' "
               sh ". ~/.bashrc"
               sh "pwd"
-              echo "after running python script ENV_VALUE : ${ENV_VALUE}"
-              echo "new enviroment var NEW_VAR : $${NEW_VAR}"
+              echo "after running python script ENV_VALUE : \$ENV_VALUE"
+              echo "new enviroment var NEW_VAR : \$NEW_VAR"
               sh "python3 ./scripts/destroyEnvVars.py"
             }
         }
