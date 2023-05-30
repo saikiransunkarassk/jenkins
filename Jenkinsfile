@@ -26,13 +26,7 @@ pipeline{
         stage("pythonScript")
         {
             steps{
-              sh 'env' // sh "python3 ./scripts/demo.py --jenkinvars ${env.} "
-            }
-        }
-        stage("list")
-        {
-            steps{
-                sh "ls -l"
+              sh "python3 ./scripts/demo.py"
             }
         }
         stage("parameters")
