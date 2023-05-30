@@ -1,1 +1,0 @@
-os.environ["NEW_ENV1"]="new environmental variable is set"
