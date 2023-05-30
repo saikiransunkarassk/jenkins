@@ -8,8 +8,8 @@ parser.add_argument("--changeVar",nargs=2)
 
 args=parser.parse_args()
 
-os.system("export {0}={1}".format(args.changeVar[0], args.changeVar[1]))
-
+os.system("export {0}=\"{1}\"".format(args.changeVar[0], args.changeVar[1]))
+os.system("export NEW_VAR=\"HELLO\"")
 print(os.environ["ENV_VALUE"])
 
 if(args.changeVar[0] not in os.environ.keys()):  
