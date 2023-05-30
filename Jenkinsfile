@@ -4,6 +4,7 @@ pipeline{
         ENV_ONE=1
         ENV_TWO=2
         ENV_THREE=3
+        ENV_VALUE="old value"
     }
     parameters{
          string(name:'newString',defaultValue:"hello",description:"")
@@ -26,7 +27,10 @@ pipeline{
         stage("pythonScript")
         {
             steps{
-              sh "python3 ./scripts/demo.py"
+              echo "before running python script ENV_VALUE : ${ENV_VALUE}"
+              sh "python3 ./scripts/demo.py --changeVar 'ENV_VALUE' 'some new value' "
+              echo "after running python script ENV_VALUE : ${ENV_VALUE}"
+              echo "new enviroment var NEW_VAR : ${NEW_VAR}"
             }
         }
         stage("parameters")

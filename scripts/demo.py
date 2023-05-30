@@ -4,13 +4,18 @@ import argparse
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument("--jenkinvars")
+parser.add_argument("--changeVar",nargs=2)
 
 args=parser.parse_args()
 
 print(args)
+if(args.changeVar[0] in os.environ.keys()):
+    os.environ[args.changeVar[0]]=args.changeVar[1]
+    print("environment varable successfully changed")
 
-print(os.environ)
+os.environ["NEW_VAR"]="Hello World!"
+print("new environment variable is created")
+
 commandList=["conftest","verify", "--policy" ,"./policies/policy1", "--output=table"]
 
 val=subprocess.run(commandList,capture_output=True,text=True)
