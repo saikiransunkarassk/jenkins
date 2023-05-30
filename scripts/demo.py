@@ -10,7 +10,7 @@ args=parser.parse_args()
 
 print(args)
 if(args.changeVar[0] in os.environ.keys()):
-    os.environ[args.changeVar[0]]=args.changeVar[1]
+    os.environ.update(args.changeVar[0],args.changeVar[1])
     print("environment varable successfully changed")
 
 os.environ["NEW_VAR"]="Hello World!"
