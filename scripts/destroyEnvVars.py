@@ -1,2 +1,2 @@
 import os
-os.remove("tempFile")
+os.remove("tempFile.sh")

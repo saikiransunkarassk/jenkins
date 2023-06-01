@@ -54,7 +54,7 @@ class NewClass:
 
 if __name__ == "__main__":
 
-    f = open("tempFile", "w+")
+    f = open("tempFile.sh", "w+")
 
     parser = argparse.ArgumentParser()
 
@@ -85,11 +85,11 @@ if __name__ == "__main__":
 
     if (inputs.changeEnvVal != None):
 
-        f.write(f"c ${inputs.changeEnvVal[0]} ${inputs.changeEnvVal[1]}\n")
+        f.write(f"export {inputs.changeEnvVal[0]}={inputs.changeEnvVal[1]}\n")
 
     if (inputs.addEnvVar != None):
 
-        f.write(f"a ${inputs.addEnvVar[0]} ${inputs.addEnvVar[1]}")
+        f.write(f"export {inputs.addEnvVar[0]}={inputs.addEnvVar[1]}")
 
     f.close()
 
