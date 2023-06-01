@@ -64,9 +64,9 @@ if __name__ == "__main__":
 
     parser.add_argument("--printEnvVarName")
 
-    # parser.add_argument("--changeEnvVal", nargs=2)
+    parser.add_argument("--changeEnvVal", nargs=2)
 
-    # parser.add_argument("--addEnvVar", nargs=2)
+    parser.add_argument("--addEnvVar", nargs=2)
 
     inputs = parser.parse_args()
 
