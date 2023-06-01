@@ -6,7 +6,9 @@ pipeline{
     }
     stage("pythonExecution")
     {
+        steps{
         sh "python3 -u ./scripts/main.py --location policies --policyName policy1 --printEnvVarName TEXT"
+        }
     }
 
 }
