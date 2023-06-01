@@ -8,6 +8,12 @@ pipeline{
     }
     parameters{
          string(name:'newString',defaultValue:"hello",description:"")
+
+         string(name:'MAIN_PY_LOC',defaultValue:"./scripts/main.py",description:"main.py file location")
+
+         string(name:'POLICY_LOC',defaultValue:"./policies",description:"policy folder location")
+
+         string(name:'POLICY_FOLDER_NAME',defaultValue:"policy1",description:"name of the policy folder")
     }
     stages{
         stage("inbuildEnvironmentVar")
@@ -15,21 +21,16 @@ pipeline{
             steps{
           
                 echo "JENKINS_URL : ${JENKINS_URL}"
-//                 echo "GIT_AUTHOR_NAME : ${GIT_AUTHOR_NAME}"
-//                 echo "GIT_AUTHOR_EMAIL : ${GIT_AUTHOR_EMAIL}"
-//                 echo "GIT_COMMITTER_NAME : ${GIT_COMMITTER_NAME}"
-//                 echo "GIT_COMMITTER_EMAIL : ${GIT_COMMITTER_EMAIL}"
-//                 echo "GIT_URL : ${GIT_URL}"
-//                 echo "BRANCH_NAME : ${BRANCH_NAME}"
-            
+
             }
         }
         stage("pythonScript")
         {
             steps{
               echo "before running python script ENV_VALUE : ${ENV_VALUE}"
-              sh "python3 ./scripts/main.py --changeVar 'ENV_VALUE' 'some' "
+              sh "python -u ${MAIN_PY_LOC} --location ${POLICY_LOC} --folderName ${POLICY_FOLDER_NAME} --printEnvVarName ${ENV_THREE}"
               echo "after running python script ENV_VALUE : ${ENV_VALUE}"
+              sh "export NEW_VAR=new"
               echo "new enviroment var NEW_VAR : ${NEW_VAR}"
               sh "python3 ./scripts/destroyEnvVars.py"
             }
