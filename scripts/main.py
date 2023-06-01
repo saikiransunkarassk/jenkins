@@ -42,7 +42,7 @@ class NewClass:
 
     def printEnvVar(self):
 
-        if (self.envVarName in os.environ.keys):
+        if (self.envVarName in os.environ.keys()):
 
             print(os.environ[self.envVarName])
 
