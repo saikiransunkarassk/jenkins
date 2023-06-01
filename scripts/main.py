@@ -54,8 +54,6 @@ class NewClass:
 
 if __name__ == "__main__":
 
-    f = open("bufferFile", )
-
     parser = argparse.ArgumentParser()
 
     parser.add_argument("--location")
@@ -83,13 +81,13 @@ if __name__ == "__main__":
 
         newObject.printEnvVar()
 
-    if (inputs.changeEnvVal != None):
+    # if (inputs.changeEnvVal != None):
 
-        f.write(f"c ${inputs.changeEnvVal[0]} ${inputs.changeEnvVal[1]}\n")
+    #     f.write(f"c ${inputs.changeEnvVal[0]} ${inputs.changeEnvVal[1]}\n")
 
-    if (inputs.addEnvVar != None):
+    # if (inputs.addEnvVar != None):
 
-        f.writelines(f"a ${inputs.addEnvVar[0]} ${inputs.addEnvVar[1]}")
+    #     f.writelines(f"a ${inputs.addEnvVar[0]} ${inputs.addEnvVar[1]}")
 
     f.close()
 
