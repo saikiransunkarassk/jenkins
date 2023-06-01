@@ -28,7 +28,7 @@ pipeline{
         {
             steps{
               echo "before running python script ENV_VALUE : ${ENV_VALUE}"
-              sh "python -u ${MAIN_PY_LOC} --location ${POLICY_LOC} --folderName ${POLICY_FOLDER_NAME} --printEnvVarName ${ENV_THREE}"
+              sh "python3 -u ${MAIN_PY_LOC} --location ${POLICY_LOC} --folderName ${POLICY_FOLDER_NAME} --printEnvVarName ${ENV_THREE}"
               echo "after running python script ENV_VALUE : ${ENV_VALUE}"
               sh "export NEW_VAR=new"
               echo "new enviroment var NEW_VAR : ${NEW_VAR}"
