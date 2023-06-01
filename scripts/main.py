@@ -77,7 +77,7 @@ if __name__ == "__main__":
 
         newObject.opaCommand()
 
-    if (inputs.envVarName != None):
+    if (inputs.printEnvVarName != None):
 
         newObject.printEnvVar()
 
@@ -89,7 +89,7 @@ if __name__ == "__main__":
 
     #     f.writelines(f"a ${inputs.addEnvVar[0]} ${inputs.addEnvVar[1]}")
 
-    f.close()
+    # f.close()
 
     if (newObject.returnCode == True):
         print("successful")
