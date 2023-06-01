@@ -4,20 +4,20 @@ import argparse
 
 
 class NewClass:
-    def __init__(self, location, folderName, envVarName):
+    def __init__(self, location, policyName, envVarName):
 
         self.location = location
 
-        self.folderName = folderName
-
-        self.returnCode = True
+        self.policyName = policyName
 
         self.envVarName = envVarName
 
+        self.returnCode = True
+
     def conftestCommand(self):
 
-        output = subprocess.run(["conftest", "verify", "--policy", self.location +
-                                "\\"+self.folderName, "--output=table"], capture_output=True, text=True)
+        output = subprocess.run(["conftest", "verify", "--policy", "./"+self.location +
+                                "/"+self.policyName, "--output=table"], capture_output=True, text=True)
 
         if (output.returncode != 0):
 
@@ -29,8 +29,8 @@ class NewClass:
 
     def opaCommand(self):
 
-        output = subprocess.run(["opa", "test", "-c", self.location+"\\"+self.folderName+"\\"+self.folderName+".rego",
-                                self.location+"\\"+self.folderName+"\\"+self.folderName+"_test.rego"], capture_output=True, text=True)
+        output = subprocess.run(["opa", "test", "-c", "./"+self.location + "/"+self.policyName+"/"+self.policyName+".rego",
+                                "./"+self.location + "/"+self.policyName+"/"+self.policyName+"_test.rego"], capture_output=True, text=True)
 
         if (output.returncode != 0):
 
@@ -58,20 +58,20 @@ if __name__ == "__main__":
 
     parser.add_argument("--location")
 
-    parser.add_argument("--folderName")
+    parser.add_argument("--policyName")
 
     parser.add_argument("--printEnvVarName")
 
-    parser.add_argument("--changeEnvVal", nargs=2)
+    # parser.add_argument("--changeEnvVal", nargs=2)
 
-    parser.add_argument("--addEnvVar", nargs=2)
+    # parser.add_argument("--addEnvVar", nargs=2)
 
     inputs = parser.parse_args()
 
-    newObject = NewClass(inputs.location, inputs.folderName,
+    newObject = NewClass(inputs.location, inputs.policyName,
                          inputs.printEnvVarName)
 
-    if (inputs.location != None and inputs.folderName != None):
+    if (inputs.location != None and inputs.policyName != None):
 
         newObject.conftestCommand()
 
