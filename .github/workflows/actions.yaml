@@ -2,7 +2,7 @@ name: opa and conftest actions
 on:
   push:
     branches:
-      - main1
+      - main
 jobs:
   conftest:
     runs-on: ubuntu-latest
