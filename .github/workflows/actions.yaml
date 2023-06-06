@@ -1,0 +1,12 @@
+name: opa and conftest actions
+on:
+  push:
+    branches:
+      - main1
+jobs:
+  conftest:
+    runs-on: ubuntu-latest
+    container: openpolicyagent/conftest:latest
+    steps:
+      - name: conftest verify
+        run: conftest verify -p ./scripts/policy1 --output=table

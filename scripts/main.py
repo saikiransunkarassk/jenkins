@@ -1,16 +1,14 @@
 import subprocess
 import os
 import argparse
-
+import re
 
 class NewClass:
-    def __init__(self, location, policyName, envVarName):
+    def __init__(self, location, policyName):
 
         self.location = location
 
         self.policyName = policyName
-
-        self.envVarName = envVarName
 
         self.returnCode = True
 
@@ -40,33 +38,14 @@ class NewClass:
 
             print(output.stdout)
 
-    def printEnvVar(self):
-
-        if (self.envVarName in os.environ.keys()):
-
-            print(os.environ[self.envVarName])
-
-        else:
-
-            print("No Environment Variable with Name " +
-                  self.envVarName+" is Found")
-
 
 if __name__ == "__main__":
-
-    f = open("tempFile.sh", "w+")
 
     parser = argparse.ArgumentParser()
 
     parser.add_argument("--location")
 
     parser.add_argument("--policyName")
-
-    parser.add_argument("--printEnvVarName")
-
-    parser.add_argument("--changeEnvVal", nargs=2)
-
-    parser.add_argument("--addEnvVar", nargs=2)
 
     inputs = parser.parse_args()
 
@@ -78,20 +57,7 @@ if __name__ == "__main__":
         newObject.conftestCommand()
 
         newObject.opaCommand()
-
-    if (inputs.printEnvVarName != None):
-
-        newObject.printEnvVar()
-
-    if (inputs.changeEnvVal != None):
-
-        f.write(f"export {inputs.changeEnvVal[0]}={inputs.changeEnvVal[1]}\n")
-
-    if (inputs.addEnvVar != None):
-
-        f.write(f"export {inputs.addEnvVar[0]}={inputs.addEnvVar[1]}")
-
-    f.close()
+  
 
     if (newObject.returnCode == True):
         print("successful")
@@ -99,18 +65,3 @@ if __name__ == "__main__":
         print("unsuccessful")
 
 
-# print(os.environ)
-
-# os.environ[args.changeVar[0]]=args.changeVar[1]
-
-# print(os.environ[args.changeVar[0]])
-
-# os.environ["NEW_VAR"]="hello"
-
-# if(args.changeVar[0] not in os.environ.keys()):
-#     print("new environment variable is created")
-
-
-# output=val.stdout
-
-# print(output)

@@ -3,6 +3,7 @@ pipeline{
     agent any
     environment{
         TEXT = "Hello World!"
+        
     }
     stages
     {
@@ -10,8 +11,6 @@ pipeline{
         steps{
         sh "python3 -u ./scripts/main.py --location policies --policyName policy1 --printEnvVarName TEXT --changeEnvVal TEXT hello --addEnvVar NEW_ENV hello"
         sh "./tempFile.sh"
-        sh "env"
-        sh "python3 -u ./scripts/destroyEnvVars.py"
         }
         }
     }
