@@ -4,15 +4,23 @@ on:
     branches:
       - main
 jobs:
-  opa:
+  opa_and_conftest:
     runs-on: ubuntu-latest
-   
     steps:
-      - name: Check out repository code
+      - name: Check out repository code #action
         uses: actions/checkout@v3
+        
       - name: Setup OPA
         uses: open-policy-agent/setup-opa@v2
         with:
-          version: latest
-      - name: opa test
+          version: latest   
+          
+      - name: Setup Conftest
+        uses: princespaghetti/setup-conftest@v1
+        
+      - name: opa test #command
         run: opa test policies/policy1/policy1.rego policies/policy1/policy1_test.rego -v
+      
+      - name: conftest verify
+        run: conftest verify policies/policy1 --output=table
+    
