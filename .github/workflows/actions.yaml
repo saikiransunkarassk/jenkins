@@ -11,4 +11,4 @@ jobs:
       - name: location
         run: pwd
       - name: conftest verify
-        run: conftest verify -p policies/policy1 --output=table
+        run: conftest verify -p ../policies/policy1 --output=table
