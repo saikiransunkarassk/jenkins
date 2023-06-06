@@ -9,6 +9,9 @@ jobs:
   conftest:
     runs-on: ubuntu-latest
     container: openpolicyagent/conftest:latest
+    defaults:
+      run:
+        shell: bash
     steps:
       - name: conftest verify
         run: tree
