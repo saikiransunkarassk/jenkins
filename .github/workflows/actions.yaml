@@ -9,8 +9,6 @@ jobs:
     container: openpolicyagent/conftest:latest
     steps:
       - name: location
-        run: > 
-              cd ..
-              ls -la
+        run: ls .. -la
       - name: conftest verify
         run: conftest verify -p policies/policy1 --output=table
