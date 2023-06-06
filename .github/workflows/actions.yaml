@@ -11,6 +11,6 @@ jobs:
     container: openpolicyagent/conftest:latest
     steps:
       - name: debug
-        run: sudo find / -name policies 
+        run: find / -name policies 
       - name: conftest verify
         run: conftest verify -p policies/policy1 --output=table
