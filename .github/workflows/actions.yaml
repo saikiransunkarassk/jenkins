@@ -22,5 +22,5 @@ jobs:
         run: opa test policies/policy1/policy1.rego policies/policy1/policy1_test.rego -v
       
       - name: conftest verify
-        run: conftest verify policies/policy1 --output=table
+        run: conftest verify -p policies/policy1 --output=table
     
