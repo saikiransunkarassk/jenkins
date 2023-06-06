@@ -14,4 +14,4 @@ jobs:
         shell: bash
     steps:
       - name: conftest verify
-        run: tree
+        run: conftest verify -p policies/policy1 --output=table
