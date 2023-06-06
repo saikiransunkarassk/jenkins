@@ -6,11 +6,13 @@ on:
 permissions:
   contents: read
 jobs:
-  conftest:
+  opa:
     runs-on: ubuntu-latest
-    container: openpolicyagent/conftest:latest
+   
     steps:
-      - name: debug
-        run: find / -name policies 
-      - name: conftest verify
-        run: conftest verify -p policies/policy1 --output=table
+      - name: Setup OPA
+        uses: open-policy-agent/setup-opa@v2
+        with:
+          version: latest
+      - name: opa test
+        run: opa test policies/policy1/policy1.rego policies/policy1/policy1_test.rego -v
