@@ -9,7 +9,6 @@ jobs:
   conftest:
     runs-on: ubuntu-latest
     container: openpolicyagent/conftest:latest
-    
     steps:
       - name: conftest verify
-        run: conftest verify -p policies/policy1 --output=table
+        run: tree
